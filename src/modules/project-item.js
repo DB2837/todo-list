@@ -26,6 +26,11 @@ class Project {
       1
     );
   }
+
+  delete() {
+    this.#todoList = [];
+    this.#name = "";
+  }
 }
 
 export default Project;
