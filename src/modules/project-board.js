@@ -33,7 +33,25 @@ class ProjectBoard {
       }
     }
 
-    return todosToday;
+    const todosTodayIbox = this.#defaultBoard[0].getTodosToday();
+
+    return todosToday.concat(todosTodayIbox);
+  }
+
+  getTodosWeekBoard() {
+    const todosWeek = [];
+    for (let i = 0; i < this.#customBoard.length; i++) {
+      const temp = this.#customBoard[i].getTodosThisWeek();
+      let j = 0;
+      while (j < temp.length) {
+        todosWeek.push(temp[j]);
+        j++;
+      }
+    }
+
+    const getTodosThisWeekInbox = this.#defaultBoard[0].getTodosThisWeek();
+
+    return todosWeek.concat(getTodosThisWeekInbox);
   }
 
   getProject(name) {
