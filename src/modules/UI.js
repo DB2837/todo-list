@@ -70,6 +70,7 @@ class UI {
 
     for (let project of projecBoard.getDefaultProjects()) {
       const projectItem = UI.generateProjectItem(project);
+      projectItem.classList.add("default-project");
       defaultProjectsContainer.appendChild(projectItem);
 
       projectItem.addEventListener("click", () => {
@@ -79,6 +80,7 @@ class UI {
           UI.addTodosWeek(projecBoard, project);
         }
 
+        /* localStorage.setItem("projectBoard", JSON.stringify(projecBoard)); */
         UI.renderTodoList(project);
         const addTodo = document.querySelector("#todo-btn");
         addTodo.style.display = "none";
@@ -103,15 +105,27 @@ class UI {
 
   static renderCustomProjects(projecBoard) {
     UI.clearProjectContainer();
+    /* localStorage.setItem("projectBoard", JSON.stringify(projecBoard));
+    const storeProjectBoard = Object.assign(
+      projecBoard,
+      JSON.parse(localStorage.getItem("projectBoard"))
+    ); */
     const projectName = document.querySelector("#project-name");
     const customProjectsContainer = document.querySelector(".custom-projects");
     const todoBtn = document.querySelector("#todo-btn");
     for (let project of projecBoard.getCustomProjects()) {
       const projectItem = UI.generateProjectItem(project);
+      projectItem.classList.add("custom-project");
       customProjectsContainer.appendChild(projectItem);
 
       projectItem.addEventListener("click", (e) => {
+        localStorage.setItem("projectBoard", JSON.stringify(projecBoard));
+
         UI.renderTodoList(project);
+
+        /*  console.log(projecBoard.getDefaultProjects());
+        console.log(storeProjectBoard.getDefaultProjects());
+        console.log(e.target); */
         todoBtn.style.display = "inline-block";
       });
 

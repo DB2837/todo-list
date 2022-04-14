@@ -1,36 +1,36 @@
 class TodoItem {
-  #title;
-  #description;
-  #date;
+  title;
+  description;
+  date;
 
   constructor(title, description, date, priority) {
-    this.#title = title;
-    this.#description = description;
-    this.#date = date;
+    this.title = title;
+    this.description = description;
+    this.date = date;
   }
 
   setTitle(title) {
-    this.#title = title;
+    this.title = title;
   }
 
   getTitle() {
-    return this.#title;
+    return this.title;
   }
 
   setDescription(description) {
-    this.#description = description;
+    this.description = description;
   }
 
   getDescription() {
-    return this.#description;
+    return this.description;
   }
 
   setDate(date) {
-    this.#date = date;
+    this.date = date;
   }
 
   getDate() {
-    return this.#date;
+    return this.date;
   }
 }
 
